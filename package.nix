@@ -22,6 +22,7 @@ buildNpmPackage rec {
     mkdir -p "$out/libexec"
     cp -r node_modules "$out/libexec/"
     makeWrapper ${nodejs_24}/bin/node "$out/bin/dsh" \
+      --add-flags "--expose-internals" \
       --add-flags "$out/libexec/node_modules/@deepseek-ai/dsh/lib/bin.js" \
       --prefix PATH : ${lib.makeBinPath [pnpm]}
     runHook postInstall

@@ -19,14 +19,10 @@
       meta.description = "Run DeepSeek Harness";
     };
 
-    checks.${system}.smoke =
-      pkgs.runCommand "deepseek-harness-smoke" {
-        nativeBuildInputs = [deepseek-harness];
-      } ''
-        test "$(dsh --version)" = "0.1.1-rc.2"
-        dsh --help >/dev/null
-        DSH_HOME="$TMPDIR/dsh-home" PATH=/does-not-exist \
-          ${deepseek-harness}/bin/dsh plugin --profile web --help >/dev/null
+    checks.${system}.smoke = pkgs.runCommand "deepseek-harness-smoke" {
+      nativeBuildInputs = [pkgs.coreutils];
+    } ''
+        ${pkgs.bash}/bin/bash ${./tests/smoke.sh} ${deepseek-harness}
         touch "$out"
       '';
 
