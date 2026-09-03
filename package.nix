@@ -7,11 +7,11 @@
 }:
 buildNpmPackage rec {
   pname = "deepseek-harness";
-  version = "0.1.1-rc.2";
+  version = "0.1.2-rc.1";
   src = ./.;
 
   nodejs = nodejs_24;
-  npmDepsHash = "sha256-EiE3pDQGCT+egW6Qi9bJHaAa+JDOCResRQc1b6GcGSw=";
+  npmDepsHash = "sha256-m6lFpm4AWK0M8l97ACFGUausLbFN+xGcZRQc1Wk4hgI=";
   npmFlags = ["--force"];
   dontNpmBuild = true;
 
