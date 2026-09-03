@@ -10,7 +10,7 @@ fi
 dsh_tmp="$(mktemp -d)"
 web_log="$dsh_tmp/web.log"
 
-test "$("$package/bin/dsh" --version)" = "0.1.1-rc.2"
+test "$("$package/bin/dsh" --version)" = "0.1.2-rc.1"
 "$package/bin/dsh" --help >/dev/null
 DSH_HOME="$dsh_tmp" PATH=/does-not-exist \
   "$package/bin/dsh" plugin --profile web --help >/dev/null
