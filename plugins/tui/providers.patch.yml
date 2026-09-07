@@ -1,0 +1,38 @@
+- id: agent-loop
+  config:
+    agents:
+      - id: main
+        provider: litellm-homelab
+        model: deepseek-v4-flash
+        cwd: !!js process.cwd()
+
+- id: llm-pi-ai
+  inject: [tuiStartup]
+  config:
+    providers:
+      litellm-homelab:
+        displayName: LiteLLM Homelab
+        apiKeyEnv: LITELLM_HOMELAB_API_KEY
+        api: openai-completions
+        baseURL: https://litellm.homelab.pastelariadev.com/v1
+        headers:
+          x-opencode-session: !!js ctx.tuiStartup.sessionId
+        models:
+          - id: deepseek-v4-flash
+          - id: deepseek-v4-pro
+          - id: qwen-chat
+      litellm-dataplatform-dev:
+        displayName: LiteLLM Data Platform Dev
+        apiKeyEnv: LITELLM_DATAPLATFORM_DEV_API_KEY
+        api: openai-completions
+        baseURL: https://llm-gateway-dataplatform-dev.nstech.com.br/v1
+        models:
+          - id: chatgpt-5.6-luna
+            reasoningEfforts: false
+          - id: deepseek-v4-flash
+      openai-codex:
+        displayName: OpenAI Codex
+        models:
+          - id: gpt-5.6-sol
+          - id: gpt-5.6-terra
+          - id: gpt-5.6-luna

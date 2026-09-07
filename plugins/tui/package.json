@@ -1,0 +1,8 @@
+{
+  "name": "deepseek-harness-tui-nix",
+  "version": "0.1.2",
+  "private": true,
+  "dependencies": {
+    "@dsh-tui/dsh-tui": "0.1.2"
+  }
+}
