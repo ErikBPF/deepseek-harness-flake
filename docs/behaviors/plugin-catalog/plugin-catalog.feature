@@ -15,7 +15,6 @@ Feature: Declarative DeepSeek Harness plugin catalog
     When its effective configuration is dumped
     Then the default model is "litellm-homelab/deepseek-v4-flash"
     And "litellm-homelab/qwen-chat" is selectable
-    And the "litellm-dataplatform-dev" provider is independently selectable
     And the native "openai-codex" provider exposes the three approved GPT models
     And the homelab route sends the stable TUI session header
     And each provider names a distinct runtime credential variable

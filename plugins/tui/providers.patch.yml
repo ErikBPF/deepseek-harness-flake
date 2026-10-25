@@ -21,15 +21,6 @@
           - id: deepseek-v4-flash
           - id: deepseek-v4-pro
           - id: qwen-chat
-      litellm-dataplatform-dev:
-        displayName: LiteLLM Data Platform Dev
-        apiKeyEnv: LITELLM_DATAPLATFORM_DEV_API_KEY
-        api: openai-completions
-        baseURL: https://llm-gateway-dataplatform-dev.nstech.com.br/v1
-        models:
-          - id: chatgpt-5.6-luna
-            reasoningEfforts: false
-          - id: deepseek-v4-flash
       openai-codex:
         displayName: OpenAI Codex
         models:

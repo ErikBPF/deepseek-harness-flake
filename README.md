@@ -24,9 +24,6 @@ LiteLLM to forward only on OpenCode-backed models.
 litellm-homelab:
   baseURL: https://litellm.homelab.pastelariadev.com/v1
   apiKeyEnv: LITELLM_HOMELAB_API_KEY
-litellm-dataplatform-dev:
-  baseURL: https://llm-gateway-dataplatform-dev.nstech.com.br/v1
-  apiKeyEnv: LITELLM_DATAPLATFORM_DEV_API_KEY
 ```
 
 The same profile exposes `gpt-5.6-sol`, `gpt-5.6-terra`, and `gpt-5.6-luna`
@@ -39,7 +36,6 @@ Inject each value only when starting Harness:
 ```bash
 package="$(nix build .#deepseek-harness --no-link --print-out-paths)"
 LITELLM_HOMELAB_API_KEY="$(< /run/vault-agent/deepseek-harness-litellm)" \
-LITELLM_DATAPLATFORM_DEV_API_KEY="$(< /run/credentials/dsh/dataplatform-litellm)" \
   "$package/bin/dsh-tui"
 ```
 
