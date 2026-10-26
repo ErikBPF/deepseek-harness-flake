@@ -15,7 +15,7 @@ DEEPSEEK_API_KEY="$(< /run/secrets/deepseek-api-key)" \
   nix run . -- web --no-open
 ```
 
-The TUI profile declares two LiteLLM routes and only their variable names.
+The TUI profile declares a LiteLLM route and only its credential variable.
 The homelab route exposes `deepseek-v4-flash`, `deepseek-v4-pro`, and local
 `qwen-chat`; it also sends the TUI session ID as `x-opencode-session` for
 LiteLLM to forward only on OpenCode-backed models.
