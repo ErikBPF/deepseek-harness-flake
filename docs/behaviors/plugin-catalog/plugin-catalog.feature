@@ -17,7 +17,8 @@ Feature: Declarative DeepSeek Harness plugin catalog
     And "litellm-homelab/qwen-chat" is selectable
     And the native "openai-codex" provider exposes the three approved GPT models
     And the homelab route sends the stable TUI session header
-    And each provider names a distinct runtime credential variable
+    And the homelab route names its runtime credential variable
+    And the native "openai-codex" provider needs no API-key variable
     And the profile's writable user patch remains independent
 
   Scenario: Keep a plugin-free recovery package
