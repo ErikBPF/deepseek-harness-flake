@@ -24,8 +24,7 @@ payload, not the generic Harness composer.
 - Builds and deployment never run mutable `dsh plugin add`.
 - Existing Web behavior and the TUI pseudo-terminal canary remain green.
 - TUI defaults to `litellm-homelab/deepseek-v4-flash`, exposes local
-  `qwen-chat`, the separate `litellm-dataplatform-dev` route, and the native
-  `openai-codex` GPT-5.6 catalog.
+  `qwen-chat`, and the native `openai-codex` GPT-5.6 catalog.
 - The homelab route emits the TUI session ID as `x-opencode-session`; LiteLLM
   owns model-scoped forwarding to OpenCode.
 - A pinned package may supply a reviewed compatibility bundle when its upstream
@@ -163,7 +162,7 @@ starts from an empty Harness home without runtime installation.
 **RED**
 
 - Require the TUI source under the catalog package entry and the effective
-  config to contain both LiteLLM routes, distinct credential variables, and
+  config to contain the homelab LiteLLM route, its credential variable, and
   the Flash default while policy remains outside the package compatibility
   patch; expect the TUI-specific composer mutation to fail.
 - Run the pseudo-TTY canary with an empty `DSH_HOME` and unusable `PATH`;

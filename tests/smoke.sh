@@ -57,9 +57,6 @@ grep -F 'https://litellm.homelab.pastelariadev.com/v1' "$tui_config" >/dev/null
 grep -F 'apiKeyEnv: LITELLM_HOMELAB_API_KEY' "$tui_config" >/dev/null
 grep -E 'x-opencode-session: .+' "$tui_config" >/dev/null
 grep -F 'id: qwen-chat' "$tui_config" >/dev/null
-grep -F 'https://llm-gateway-dataplatform-dev.nstech.com.br/v1' "$tui_config" >/dev/null
-grep -F 'apiKeyEnv: LITELLM_DATAPLATFORM_DEV_API_KEY' "$tui_config" >/dev/null
-grep -F 'id: chatgpt-5.6-luna' "$tui_config" >/dev/null
 grep -F 'openai-codex:' "$tui_config" >/dev/null
 grep -F 'id: gpt-5.6-sol' "$tui_config" >/dev/null
 grep -F 'id: gpt-5.6-terra' "$tui_config" >/dev/null

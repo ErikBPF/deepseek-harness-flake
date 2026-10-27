@@ -15,7 +15,7 @@ DEEPSEEK_API_KEY="$(< /run/secrets/deepseek-api-key)" \
   nix run . -- web --no-open
 ```
 
-The TUI profile declares two LiteLLM routes and only their variable names.
+The TUI profile declares a LiteLLM route and only its credential variable.
 The homelab route exposes `deepseek-v4-flash`, `deepseek-v4-pro`, and local
 `qwen-chat`; it also sends the TUI session ID as `x-opencode-session` for
 LiteLLM to forward only on OpenCode-backed models.
@@ -24,9 +24,6 @@ LiteLLM to forward only on OpenCode-backed models.
 litellm-homelab:
   baseURL: https://litellm.homelab.pastelariadev.com/v1
   apiKeyEnv: LITELLM_HOMELAB_API_KEY
-litellm-dataplatform-dev:
-  baseURL: https://llm-gateway-dataplatform-dev.nstech.com.br/v1
-  apiKeyEnv: LITELLM_DATAPLATFORM_DEV_API_KEY
 ```
 
 The same profile exposes `gpt-5.6-sol`, `gpt-5.6-terra`, and `gpt-5.6-luna`
@@ -39,7 +36,6 @@ Inject each value only when starting Harness:
 ```bash
 package="$(nix build .#deepseek-harness --no-link --print-out-paths)"
 LITELLM_HOMELAB_API_KEY="$(< /run/vault-agent/deepseek-harness-litellm)" \
-LITELLM_DATAPLATFORM_DEV_API_KEY="$(< /run/credentials/dsh/dataplatform-litellm)" \
   "$package/bin/dsh-tui"
 ```
 
